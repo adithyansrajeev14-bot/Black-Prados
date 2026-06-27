@@ -1,238 +1,289 @@
-	<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BLACK PRADOS | Elite Pet Services</title>
-    <!-- Tailwind CSS for modern layout styling -->
+    <title>BLACK PRADOS | Elite Pet Care & Training Canvas</title>
+    <!-- Tailwind CSS Engine -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <!-- FontAwesome for clean iconography -->
+    <!-- FontAwesome for high-fidelity interface iconography -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter for a premium UI presentation -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+        body { font-family: 'Inter', sans-serif; }
         .page-section { display: none; }
         .page-section.active { display: block; }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans">
+<body class="bg-slate-950 text-slate-100 antialiased selection:bg-amber-500 selection:text-slate-950">
 
-    <!-- Header Navigation -->
-    <nav class="bg-slate-900 text-white sticky top-0 z-50 shadow-md">
+    <!-- STITCH-INSPIRED TOP BAR HUD -->
+    <nav class="sticky top-0 z-50 bg-slate-900/80 backdrop-blur-md border-b border-slate-800/60 transition-all duration-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
-            <div class="flex items-center space-x-2 cursor-pointer" onclick="showPage('home')">
-                <i class="fa-solid fa-dog text-amber-500 text-2xl"></i>
-                <span class="font-bold text-xl tracking-wider text-amber-400">BLACK PRADOS</span>
+            <div class="flex items-center space-x-3 cursor-pointer group" onclick="showPage('home')">
+                <div class="w-9 h-9 bg-amber-500/10 rounded-xl flex items-center justify-center border border-amber-500/20 group-hover:border-amber-500/50 transition">
+                    <i class="fa-solid fa-dog text-amber-500 text-lg"></i>
+                </div>
+                <span class="font-extrabold text-lg tracking-wider text-slate-50 uppercase bg-gradient-to-r from-slate-50 via-slate-100 to-amber-400 bg-clip-text">BLACK PRADOS</span>
             </div>
-            <div class="hidden md:flex space-x-6 items-center">
-                <button onclick="showPage('home')" class="hover:text-amber-400 transition">Home</button>
-                <button onclick="showPage('services')" class="hover:text-amber-400 transition">Services</button>
-                <button onclick="showPage('login-page')" class="bg-amber-500 hover:bg-amber-600 text-slate-900 px-4 py-2 rounded-lg font-semibold transition">Portal Login</button>
+            <div class="flex space-x-2 items-center text-sm font-medium">
+                <button onclick="showPage('home')" class="px-3 py-2 text-slate-400 hover:text-slate-100 transition rounded-lg">Home</button>
+                <button onclick="showPage('services')" class="px-3 py-2 text-slate-400 hover:text-slate-100 transition rounded-lg">Services</button>
+                <button onclick="showPage('login-page')" class="ml-2 bg-amber-500 hover:bg-amber-400 text-slate-950 px-4 py-2 rounded-xl font-bold tracking-tight shadow-lg shadow-amber-500/10 transition-all active:scale-95">Portal Login</button>
             </div>
         </div>
     </nav>
 
-    <!-- 1. HOME SECTION -->
-    <section id="home" class="page-section active">
-        <div class="relative bg-slate-900 text-white py-24 px-6 text-center overflow-hidden">
-            <div class="max-w-3xl mx-auto relative z-10">
-                <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-4">Elite Care For Your Best Friend</h1>
-                <p class="text-lg md:text-xl text-slate-300 mb-8">Professional dog training, luxury boarding, grooming, and daytime care tailored to your dog's distinct needs.</p>
-                <div class="flex justify-center space-x-4">
-                    <button onclick="showPage('services')" class="bg-amber-500 hover:bg-amber-600 text-slate-900 px-6 py-3 rounded-lg font-bold transition">Book a Service</button>
-                    <button onclick="showPage('login-page')" class="border border-slate-400 hover:border-white px-6 py-3 rounded-lg font-medium transition">Client & Admin Login</button>
+    <!-- 1. HERO CANVAS HERO SECTION -->
+    <section id="home" class="page-section active max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+        <div class="grid lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-7 space-y-6">
+                <div class="inline-flex items-center space-x-2 bg-slate-900/80 border border-slate-800/80 rounded-full py-1 px-3 text-xs text-amber-400 font-medium">
+                    <span class="flex h-2 w-2 relative">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
+                    </span>
+                    <span>Elite Luxury K9 Resort & Academy</span>
+                </div>
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-white leading-[1.1]">
+                    Architected Care For Your <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500">Best Friend</span>
+                </h1>
+                <p class="text-slate-400 text-base sm:text-lg max-w-xl leading-relaxed">
+                    Professional behavioral conditioning, interactive boarding suites, aesthetic grooming treatments, and active social daycare built strictly around canine biomechanics and safety.
+                </p>
+                <div class="flex flex-wrap gap-4 pt-2">
+                    <button onclick="showPage('services')" class="bg-amber-500 hover:bg-amber-400 text-slate-950 px-6 py-3 rounded-xl font-bold tracking-tight shadow-xl shadow-amber-500/10 transition active:scale-95 flex items-center space-x-2">
+                        <span>Book Appointment</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                    <button onclick="showPage('login-page')" class="bg-slate-900 hover:bg-slate-800/80 text-slate-300 border border-slate-800 px-6 py-3 rounded-xl font-semibold transition active:scale-95">
+                        Access Portals
+                    </button>
+                </div>
+            </div>
+            
+            <!-- SIDE GLANCE METRICS COMPONENT -->
+            <div class="lg:col-span-5 grid grid-cols-2 gap-4">
+                <div class="bg-slate-900/40 p-6 rounded-2xl border border-slate-900/80 backdrop-blur">
+                    <div class="w-10 h-10 bg-amber-500/10 rounded-xl flex items-center justify-center text-amber-400 mb-4"><i class="fa-solid fa-shield-cat"></i></div>
+                    <div class="text-2xl font-bold text-white">100%</div>
+                    <div class="text-xs text-slate-500 mt-1 uppercase font-semibold tracking-wider">Safety Record</div>
+                </div>
+                <div class="bg-slate-900/40 p-6 rounded-2xl border border-slate-900/80 backdrop-blur">
+                    <div class="w-10 h-10 bg-amber-500/10 rounded-xl flex items-center justify-center text-amber-400 mb-4"><i class="fa-solid fa-user-shield"></i></div>
+                    <div class="text-2xl font-bold text-white">24/7</div>
+                    <div class="text-xs text-slate-500 mt-1 uppercase font-semibold tracking-wider">Staff Supervision</div>
+                </div>
+                <div class="bg-slate-900/40 p-6 rounded-2xl border border-slate-900/80 backdrop-blur col-span-2">
+                    <div class="text-sm font-semibold text-slate-300 mb-2">Facility Layout Matrix</div>
+                    <div class="w-full bg-slate-800 rounded-full h-1.5 mb-2 overflow-hidden">
+                        <div class="bg-amber-500 h-1.5 rounded-full" style="width: 82%"></div>
+                    </div>
+                    <div class="flex justify-between text-xs text-slate-500 font-medium">
+                        <span>Current Kennel Capacity</span>
+                        <span class="text-amber-400">82% Assigned</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 2. LOGIN / PORTAL CHOICE SECTION -->
-    <section id="login-page" class="page-section py-12 px-4 max-w-md mx-auto">
-        <div class="bg-white p-8 rounded-xl shadow-lg border border-slate-200">
-            <h2 class="text-2xl font-bold text-center mb-6 text-slate-900">Welcome to BLACK PRADOS</h2>
+    <!-- 2. LOGIN SEGMENT COMPONENT -->
+    <section id="login-page" class="page-section py-16 px-4 max-w-md mx-auto">
+        <div class="bg-slate-900/60 p-8 rounded-2xl border border-slate-800/80 shadow-2xl backdrop-blur-xl">
+            <div class="text-center mb-6">
+                <h2 class="text-2xl font-black text-white tracking-tight">Identity Authentication</h2>
+                <p class="text-xs text-slate-500 mt-1">Select your authorization channel below.</p>
+            </div>
             
-            <!-- Segmented Control for Admin/User -->
-            <div class="flex bg-slate-100 p-1 rounded-lg mb-6">
-                <button id="userToggle" onclick="toggleRole('user')" class="w-1/2 py-2 text-sm font-medium rounded-md bg-white text-slate-900 shadow">User Portal</button>
-                <button id="adminToggle" onclick="toggleRole('admin')" class="w-1/2 py-2 text-sm font-medium rounded-md text-slate-600">Admin Panel</button>
+            <!-- Segmented Control Matrix -->
+            <div class="flex bg-slate-950/80 p-1.5 rounded-xl border border-slate-800/40 mb-6">
+                <button id="userToggle" onclick="toggleRole('user')" class="w-1/2 py-2 text-xs font-bold rounded-lg bg-slate-800 text-amber-400 shadow-sm transition-all duration-150">User Portal</button>
+                <button id="adminToggle" onclick="toggleRole('admin')" class="w-1/2 py-2 text-xs font-bold rounded-lg text-slate-400 transition-all duration-150">Admin Panel</button>
             </div>
 
-            <!-- Standard Credential Form -->
+            <!-- Auth Input Form -->
             <form onsubmit="handleLogin(event)" class="space-y-4">
                 <div>
-                    <label class="block text-sm font-medium mb-1">Email Address</label>
-                    <input type="email" id="loginEmail" required class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500">
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1.5">Security Email Address</label>
+                    <input type="email" id="loginEmail" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-sm text-slate-100 focus:outline-none focus:ring-2 focus:ring-amber-500/40 transition">
                 </div>
                 <div>
-                    <label class="block text-sm font-medium mb-1">Password</label>
-                    <input type="password" id="loginPassword" required class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500">
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1.5">Master Token Password</label>
+                    <input type="password" id="loginPassword" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-sm text-slate-100 focus:outline-none focus:ring-2 focus:ring-amber-500/40 transition">
                 </div>
-                <button type="submit" class="w-full bg-slate-900 hover:bg-slate-800 text-white py-2 rounded-lg font-semibold transition">Log In</button>
+                <button type="submit" class="w-full bg-slate-100 hover:bg-white text-slate-950 py-3 rounded-xl font-bold text-sm tracking-tight transition shadow-xl shadow-white/5 active:scale-95">Verify Credentials</button>
             </form>
 
-            <div class="relative flex py-4 items-center">
-                <div class="flex-grow border-t border-slate-300"></div>
-                <span class="flex-shrink mx-4 text-slate-400 text-xs uppercase">Or continue with</span>
-                <div class="flex-grow border-t border-slate-300"></div>
+            <div class="relative flex py-5 items-center">
+                <div class="flex-grow border-t border-slate-800"></div>
+                <span class="flex-shrink mx-4 text-slate-600 text-[10px] uppercase tracking-widest font-black">Federated Gateways</span>
+                <div class="flex-grow border-t border-slate-800"></div>
             </div>
 
-            <!-- Google Sign-in Button Wrapper -->
-            <button onclick="simulateGoogleLogin()" class="w-full flex items-center justify-center space-x-2 border border-slate-300 hover:bg-slate-50 py-2 rounded-lg font-medium transition">
-                <i class="fa-brands fa-google text-red-500"></i>
-                <span>Sign in with Google</span>
+            <button onclick="simulateGoogleLogin()" class="w-full flex items-center justify-center space-x-2 bg-slate-950 hover:bg-slate-900 border border-slate-800 py-2.5 rounded-xl text-sm text-slate-300 font-medium transition active:scale-95">
+                <i class="fa-brands fa-google text-red-400 text-xs"></i>
+                <span class="text-xs font-semibold tracking-tight">Access with Google Account</span>
             </button>
         </div>
     </section>
 
-    <!-- 3. SERVICES & BOOKING SECTION -->
-    <section id="services" class="page-section py-12 px-4 max-w-6xl mx-auto">
-        <h2 class="text-3xl font-extrabold text-center mb-2">Our Premium Packages</h2>
-        <p class="text-slate-600 text-center mb-10">Select an elite option to begin scheduling your appointment.</p>
+    <!-- 3. SERVICES HIGHLIGHT GRID -->
+    <section id="services" class="page-section py-16 px-4 max-w-7xl mx-auto">
+        <div class="text-center max-w-xl mx-auto mb-12">
+            <h2 class="text-3xl font-black text-white tracking-tight">Structured Service Protocols</h2>
+            <p class="text-slate-400 text-sm mt-2">Engineered tracking solutions and elite grooming architectures managed by professional teams.</p>
+        </div>
         
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <!-- Card 1 -->
-            <div class="bg-white p-6 rounded-xl shadow-md border border-slate-100 flex flex-col justify-between">
+            <div class="bg-slate-900/40 rounded-2xl border border-slate-900 p-6 flex flex-col justify-between hover:border-slate-800 transition-all duration-300 group">
                 <div>
-                    <div class="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center text-amber-600 mb-4 text-xl"><i class="fa-solid fa-graduation-cap"></i></div>
-                    <h3 class="text-xl font-bold mb-2">K9 Obedience</h3>
-                    <p class="text-sm text-slate-600 mb-4">Behavior correction, socialization, and core leash obedience rules.</p>
+                    <div class="w-10 h-10 bg-amber-500/10 rounded-xl flex items-center justify-center text-amber-400 mb-4 text-base border border-amber-500/10 group-hover:bg-amber-500 group-hover:text-slate-950 transition-all duration-300"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <h3 class="text-lg font-bold text-white mb-1.5 tracking-tight">K9 Obedience</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed mb-6">Behavior structural analysis, advanced agility correction, and environmental socialization routines.</p>
                 </div>
                 <div>
-                    <div class="text-2xl font-bold mb-4">$120 <span class="text-xs text-slate-500">/ session</span></div>
-                    <button onclick="openBooking('K9 Obedience Training', 120)" class="w-full bg-slate-950 hover:bg-slate-800 text-white py-2 rounded-lg text-sm font-semibold transition">Select</button>
+                    <div class="flex items-baseline space-x-1 mb-4"><span class="text-2xl font-black text-white">$120</span><span class="text-[10px] text-slate-500 uppercase tracking-wider font-semibold">/ execution</span></div>
+                    <button onclick="openBooking('K9 Obedience Training', 120)" class="w-full bg-slate-800 hover:bg-slate-700 text-slate-100 py-2.5 rounded-xl text-xs font-bold transition tracking-tight">Select Framework</button>
                 </div>
             </div>
             <!-- Card 2 -->
-            <div class="bg-white p-6 rounded-xl shadow-md border border-slate-100 flex flex-col justify-between">
+            <div class="bg-slate-900/40 rounded-2xl border border-slate-900 p-6 flex flex-col justify-between hover:border-slate-800 transition-all duration-300 group">
                 <div>
-                    <div class="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center text-amber-600 mb-4 text-xl"><i class="fa-solid fa-cloud-sun"></i></div>
-                    <h3 class="text-xl font-bold mb-2">Day Care</h3>
-                    <p class="text-sm text-slate-600 mb-4">Monitored group interactions, dynamic agility runs, and nap structures.</p>
+                    <div class="w-10 h-10 bg-amber-500/10 rounded-xl flex items-center justify-center text-amber-400 mb-4 text-base border border-amber-500/10 group-hover:bg-amber-500 group-hover:text-slate-950 transition-all duration-300"><i class="fa-solid fa-cloud-sun"></i></div>
+                    <h3 class="text-lg font-bold text-white mb-1.5 tracking-tight">Active Day Care</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed mb-6">Monitored tracking packs, dynamic physical enrichment runs, and strict rest scheduling blocks.</p>
                 </div>
                 <div>
-                    <div class="text-2xl font-bold mb-4">$45 <span class="text-xs text-slate-500">/ day</span></div>
-                    <button onclick="openBooking('Premium Day Care', 45)" class="w-full bg-slate-950 hover:bg-slate-800 text-white py-2 rounded-lg text-sm font-semibold transition">Select</button>
+                    <div class="flex items-baseline space-x-1 mb-4"><span class="text-2xl font-black text-white">$45</span><span class="text-[10px] text-slate-500 uppercase tracking-wider font-semibold">/ daily timeline</span></div>
+                    <button onclick="openBooking('Premium Day Care', 45)" class="w-full bg-slate-800 hover:bg-slate-700 text-slate-100 py-2.5 rounded-xl text-xs font-bold transition tracking-tight">Select Framework</button>
                 </div>
             </div>
             <!-- Card 3 -->
-            <div class="bg-white p-6 rounded-xl shadow-md border border-slate-100 flex flex-col justify-between">
+            <div class="bg-slate-900/40 rounded-2xl border border-slate-900 p-6 flex flex-col justify-between hover:border-slate-800 transition-all duration-300 group">
                 <div>
-                    <div class="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center text-amber-600 mb-4 text-xl"><i class="fa-solid fa-scissors"></i></div>
-                    <h3 class="text-xl font-bold mb-2">Spa & Grooming</h3>
-                    <p class="text-sm text-slate-600 mb-4">Precision shedding blowouts, nail trimming, and therapeutic baths.</p>
+                    <div class="w-10 h-10 bg-amber-500/10 rounded-xl flex items-center justify-center text-amber-400 mb-4 text-base border border-amber-500/10 group-hover:bg-amber-500 group-hover:text-slate-950 transition-all duration-300"><i class="fa-solid fa-scissors"></i></div>
+                    <h3 class="text-lg font-bold text-white mb-1.5 tracking-tight">Spa & Grooming</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed mb-6">Therapeutic undercoat blowouts, nail precision micro-trimming, and dermis-safe oil baths.</p>
                 </div>
                 <div>
-                    <div class="text-2xl font-bold mb-4">$75 <span class="text-xs text-slate-500">/ session</span></div>
-                    <button onclick="openBooking('Spa & Grooming', 75)" class="w-full bg-slate-950 hover:bg-slate-800 text-white py-2 rounded-lg text-sm font-semibold transition">Select</button>
+                    <div class="flex items-baseline space-x-1 mb-4"><span class="text-2xl font-black text-white">$75</span><span class="text-[10px] text-slate-500 uppercase tracking-wider font-semibold">/ asset</span></div>
+                    <button onclick="openBooking('Spa & Grooming', 75)" class="w-full bg-slate-800 hover:bg-slate-700 text-slate-100 py-2.5 rounded-xl text-xs font-bold transition tracking-tight">Select Framework</button>
                 </div>
             </div>
             <!-- Card 4 -->
-            <div class="bg-white p-6 rounded-xl shadow-md border border-slate-100 flex flex-col justify-between">
+            <div class="bg-slate-900/40 rounded-2xl border border-slate-900 p-6 flex flex-col justify-between hover:border-slate-800 transition-all duration-300 group">
                 <div>
-                    <div class="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center text-amber-600 mb-4 text-xl"><i class="fa-solid fa-hotel"></i></div>
-                    <h3 class="text-xl font-bold mb-2">Luxury Boarding</h3>
-                    <p class="text-sm text-slate-600 mb-4">Overnight stays inside temperature-regulated suites with 24/7 staff lookouts.</p>
+                    <div class="w-10 h-10 bg-amber-500/10 rounded-xl flex items-center justify-center text-amber-400 mb-4 text-base border border-amber-500/10 group-hover:bg-amber-500 group-hover:text-slate-950 transition-all duration-300"><i class="fa-solid fa-hotel"></i></div>
+                    <h3 class="text-lg font-bold text-white mb-1.5 tracking-tight">Elite Boarding</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed mb-6">Climate-stabilized overnight micro-suites paired with continuous security monitoring lines.</p>
                 </div>
                 <div>
-                    <div class="text-2xl font-bold mb-4">$90 <span class="text-xs text-slate-500">/ night</span></div>
-                    <button onclick="openBooking('Luxury Boarding Suite', 90)" class="w-full bg-slate-950 hover:bg-slate-800 text-white py-2 rounded-lg text-sm font-semibold transition">Select</button>
+                    <div class="flex items-baseline space-x-1 mb-4"><span class="text-2xl font-black text-white">$90</span><span class="text-[10px] text-slate-500 uppercase tracking-wider font-semibold">/ overnight</span></div>
+                    <button onclick="openBooking('Luxury Boarding Suite', 90)" class="w-full bg-slate-800 hover:bg-slate-700 text-slate-100 py-2.5 rounded-xl text-xs font-bold transition tracking-tight">Select Framework</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 4. CHECKOUT MODAL / POPUP -->
-    <div id="bookingModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm hidden items-center justify-center p-4 z-50">
-        <div class="bg-white w-full max-w-md rounded-xl shadow-xl overflow-hidden">
-            <div class="p-6 border-b border-slate-200 flex justify-between items-center">
-                <h3 class="font-bold text-lg text-slate-900">Confirm Appointment</h3>
-                <button onclick="closeModal()" class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-xmark"></i></button>
+    <!-- 4. WIREFRAME CHECKOUT DISPATCH MODAL -->
+    <div id="bookingModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md hidden items-center justify-center p-4 z-50 transition-all">
+        <div class="bg-slate-900 w-full max-w-md rounded-2xl border border-slate-800 shadow-2xl overflow-hidden scale-95 transition-transform duration-200">
+            <div class="p-5 border-b border-slate-800/80 flex justify-between items-center">
+                <h3 class="font-bold text-sm text-slate-200 uppercase tracking-wider">Gateway Authorization</h3>
+                <button onclick="closeModal()" class="text-slate-500 hover:text-slate-300 p-1 rounded-lg transition"><i class="fa-solid fa-xmark"></i></button>
             </div>
-            <div class="p-6 space-y-4">
-                <div>
-                    <p class="text-xs text-slate-500 uppercase tracking-wide">Selected Service</p>
-                    <p id="modalServiceName" class="font-bold text-slate-800 text-lg"></p>
+            <div class="p-6 space-y-5">
+                <div class="bg-slate-950 p-4 rounded-xl border border-slate-800/60">
+                    <p class="text-[10px] text-slate-500 uppercase tracking-widest font-bold mb-1">Target Pipeline</p>
+                    <p id="modalServiceName" class="font-bold text-white text-base"></p>
                 </div>
-                <div>
-                    <p class="text-xs text-slate-500 uppercase tracking-wide">Total Charge</p>
-                    <p id="modalServicePrice" class="font-extrabold text-slate-900 text-2xl"></p>
+                <div class="bg-slate-950 p-4 rounded-xl border border-slate-800/60">
+                    <p class="text-[10px] text-slate-500 uppercase tracking-widest font-bold mb-1">Captured Gross Cost</p>
+                    <p id="modalServicePrice" class="font-black text-amber-400 text-3xl tracking-tight"></p>
                 </div>
-                <hr class="border-slate-200">
-                <p class="text-xs text-slate-500">Secure checkouts facilitated by third-party processors.</p>
                 
-                <!-- Google Pay Simulation Action Button -->
-                <button onclick="processGPay()" class="w-full bg-black hover:bg-slate-900 text-white py-3 rounded-lg flex items-center justify-center space-x-2 font-medium tracking-wide transition">
+                <!-- Google Pay Processing Node -->
+                <button onclick="processGPay()" class="w-full bg-white hover:bg-slate-100 text-slate-950 py-3.5 rounded-xl flex items-center justify-center space-x-2 font-bold text-sm transition active:scale-95 shadow-lg shadow-white/5">
                     <i class="fa-brands fa-google-pay text-3xl"></i>
                 </button>
+                <p class="text-center text-[10px] text-slate-500 leading-normal">Transactions are authorized instantly using verified Google token layers via API sandbox protocols.</p>
             </div>
         </div>
     </div>
 
-    <!-- 5. USER DASHBOARD -->
-    <section id="user-dashboard" class="page-section py-12 px-4 max-w-4xl mx-auto">
-        <div class="bg-white p-6 rounded-xl shadow-md border mb-6 flex justify-between items-center">
+    <!-- 5. CLIENT DEPLOYED METRICS DASHBOARD -->
+    <section id="user-dashboard" class="page-section py-16 px-4 max-w-4xl mx-auto">
+        <div class="bg-slate-900/60 p-6 rounded-2xl border border-slate-800/80 mb-6 flex flex-col sm:flex-row justify-between sm:items-center gap-4 backdrop-blur">
             <div>
-                <h2 class="text-2xl font-bold">Welcome Back, Client Portal</h2>
-                <p id="userDashboardEmail" class="text-sm text-slate-500"></p>
+                <h2 class="text-xl font-black tracking-tight text-white">Client Operations Cloud</h2>
+                <p id="userDashboardEmail" class="text-xs text-amber-500/80 font-mono mt-0.5"></p>
             </div>
-            <button onclick="logout()" class="text-red-500 font-semibold hover:underline">Sign Out</button>
+            <button onclick="logout()" class="text-xs font-bold text-red-400 bg-red-500/15 border border-red-500/20 px-3 py-1.5 rounded-xl hover:bg-red-500/20 transition self-start sm:self-auto">Disconnect Session</button>
         </div>
-        <div class="bg-white p-6 rounded-xl shadow-md border">
-            <h3 class="font-bold text-lg mb-4">Your Registered Appointments</h3>
-            <div id="bookingList" class="divide-y divide-slate-200 text-sm">
-                <p class="text-slate-500 py-4">No active service records found. Visit the services tab to schedule a window.</p>
+        <div class="bg-slate-900/40 p-6 rounded-2xl border border-slate-900/80">
+            <h3 class="font-bold text-sm uppercase tracking-wider text-slate-300 mb-4">Assigned Active Timelines</h3>
+            <div id="bookingList" class="divide-y divide-slate-800 text-xs">
+                <p class="text-slate-500 py-6 text-center">No structural execution records found. Deploy a service window from the catalogue.</p>
             </div>
         </div>
     </section>
 
-    <!-- 6. ADMIN DASHBOARD -->
-    <section id="admin-dashboard" class="page-section py-12 px-4 max-w-5xl mx-auto">
-        <div class="bg-white p-6 rounded-xl shadow-md border mb-6 flex justify-between items-center">
+    <!-- 6. MASTER ADMIN HUD LEDGER -->
+    <section id="admin-dashboard" class="page-section py-16 px-4 max-w-5xl mx-auto">
+        <div class="bg-slate-900/60 p-6 rounded-2xl border border-slate-800/80 mb-6 flex justify-between items-center backdrop-blur">
             <div>
-                <h2 class="text-2xl font-bold text-slate-900">BLACK PRADOS Administration Control</h2>
-                <p class="text-sm text-amber-600 font-medium"><i class="fa-solid fa-shield-halved"></i> Global Master Authorization Mode</p>
+                <h2 class="text-xl font-black text-white tracking-tight">Global Controller Workspace</h2>
+                <p class="text-xs text-amber-500 font-medium mt-0.5"><i class="fa-solid fa-shield-halved mr-1"></i> Root Administration Clearance Active</p>
             </div>
-            <button onclick="logout()" class="text-red-600 font-semibold hover:underline">Exit Panel</button>
+            <button onclick="logout()" class="text-xs font-bold text-slate-400 border border-slate-800 px-3 py-1.5 rounded-xl hover:bg-slate-800 transition">Exit Instance</button>
         </div>
-        <div class="grid md:grid-cols-3 gap-4 mb-6">
-            <div class="bg-slate-900 text-white p-4 rounded-xl">
-                <p class="text-xs text-slate-400 uppercase font-medium">Gross Incoming Invoices</p>
-                <p id="adminRevenue" class="text-2xl font-bold">$0.00</p>
+        
+        <div class="grid sm:grid-cols-3 gap-4 mb-8">
+            <div class="bg-slate-900/80 p-5 rounded-2xl border border-slate-800">
+                <p class="text-[10px] text-slate-500 uppercase tracking-widest font-bold">Gross Settlement Pipeline</p>
+                <p id="adminRevenue" class="text-3xl font-black text-amber-400 tracking-tight mt-1">$0.00</p>
             </div>
-            <div class="bg-white border p-4 rounded-xl">
-                <p class="text-xs text-slate-500 uppercase font-medium">Pending Kennel Boarders</p>
-                <p class="text-2xl font-bold">14</p>
+            <div class="bg-slate-900/40 p-5 rounded-2xl border border-slate-900">
+                <p class="text-[10px] text-slate-500 uppercase tracking-widest font-bold">Assigned Active Kennels</p>
+                <p class="text-3xl font-black text-white tracking-tight mt-1">14</p>
             </div>
-            <div class="bg-white border p-4 rounded-xl">
-                <p class="text-xs text-slate-500 uppercase font-medium">Training Programs Active</p>
-                <p class="text-2xl font-bold">8</p>
+            <div class="bg-slate-900/40 p-5 rounded-2xl border border-slate-900">
+                <p class="text-[10px] text-slate-500 uppercase tracking-widest font-bold">Active Academic Cohorts</p>
+                <p class="text-3xl font-black text-white tracking-tight mt-1">8</p>
             </div>
         </div>
-        <div class="bg-white p-6 rounded-xl shadow-md border">
-            <h3 class="font-bold text-lg mb-4">Master Ledger Appointments</h3>
+
+        <div class="bg-slate-900/40 rounded-2xl border border-slate-900/80 p-6">
+            <h3 class="font-bold text-sm uppercase tracking-wider text-slate-300 mb-4">Master Ledger Receipts</h3>
             <div class="overflow-x-auto">
-                <table class="w-full text-left text-sm whitespace-nowrap">
+                <table class="w-full text-left text-xs whitespace-nowrap">
                     <thead>
-                        <tr class="bg-slate-50 text-slate-600 uppercase text-xs font-semibold border-b">
-                            <th class="py-3 px-4">Client Email</th>
-                            <th class="py-3 px-4">Service Package</th>
-                            <th class="py-3 px-4">Gateway Source</th>
-                            <th class="py-3 px-4">Transaction Status</th>
+                        <tr class="text-slate-500 uppercase text-[10px] font-bold tracking-wider border-b border-slate-800/60 pb-2">
+                            <th class="pb-3 px-4">Authorized User</th>
+                            <th class="pb-3 px-4">Assigned Service Matrix</th>
+                            <th class="pb-3 px-4">Gateway Endpoint</th>
+                            <th class="pb-3 px-4 text-right">Ledger Status</th>
                         </tr>
                     </thead>
-                    <tbody id="adminTableBody" class="divide-y text-slate-700">
-                        <!-- Simulated Rows Enter Here Dynamic -->
+                    <tbody id="adminTableBody" class="divide-y divide-slate-800/40 text-slate-300">
+                        <!-- Dynamic Ledger Ingestion -->
                     </tbody>
                 </table>
             </div>
         </div>
     </section>
 
-    <!-- Interactive Logic Controller Script -->
+    <!-- CORE LOGIC FRAMEWORK CONTROL ENGINE -->
     <script>
         let currentRole = 'user';
         let loggedInUser = null;
         let selectedService = null;
         
-        // Mock State Engine Data
         let globalState = {
             bookings: [],
             totalRevenue: 0
@@ -250,11 +301,11 @@
             const uBtn = document.getElementById('userToggle');
             const aBtn = document.getElementById('adminToggle');
             if(role === 'admin') {
-                aBtn.className = "w-1/2 py-2 text-sm font-medium rounded-md bg-white text-slate-900 shadow";
-                uBtn.className = "w-1/2 py-2 text-sm font-medium rounded-md text-slate-600";
+                aBtn.className = "w-1/2 py-2 text-xs font-bold rounded-lg bg-slate-800 text-amber-400 shadow-sm transition-all duration-150";
+                uBtn.className = "w-1/2 py-2 text-xs font-bold rounded-lg text-slate-400 transition-all duration-150";
             } else {
-                uBtn.className = "w-1/2 py-2 text-sm font-medium rounded-md bg-white text-slate-900 shadow";
-                aBtn.className = "w-1/2 py-2 text-sm font-medium rounded-md text-slate-600";
+                uBtn.className = "w-1/2 py-2 text-xs font-bold rounded-lg bg-slate-800 text-amber-400 shadow-sm transition-all duration-150";
+                aBtn.className = "w-1/2 py-2 text-xs font-bold rounded-lg text-slate-400 transition-all duration-150";
             }
         }
 
@@ -267,7 +318,6 @@
 
         function simulateGoogleLogin() {
             loggedInUser = "client.viasocial@gmail.com";
-            alert("Google OAuth Sandbox authentication succeeded!");
             routingDashboard();
         }
 
@@ -289,35 +339,34 @@
         function openBooking(name, price) {
             selectedService = { name, price };
             document.getElementById('modalServiceName').innerText = name;
-            document.getElementById('modalServicePrice').innerText = `$${price}`;
+            document.getElementById('modalServicePrice').innerText = `$${price}.00`;
             const modal = document.getElementById('bookingModal');
             modal.style.display = 'flex';
+            setTimeout(() => { modal.firstElementChild.className = "bg-slate-900 w-full max-w-md rounded-2xl border border-slate-800 shadow-2xl overflow-hidden scale-100 transition-transform duration-200"; }, 10);
         }
 
         function closeModal() {
-            document.getElementById('bookingModal').style.display = 'none';
+            const modal = document.getElementById('bookingModal');
+            modal.firstElementChild.className = "bg-slate-900 w-full max-w-md rounded-2xl border border-slate-800 shadow-2xl overflow-hidden scale-95 transition-transform duration-200";
+            setTimeout(() => { modal.style.display = 'none'; }, 150);
         }
 
         function processGPay() {
-            alert(`Google Pay interface called.\nProcessing charge amount: $${selectedService.price}`);
-            
             const newRecord = {
-                user: loggedInUser || 'Walk-in Client/Guest',
+                user: loggedInUser || 'Guest_Token_4021',
                 service: selectedService.name,
                 price: selectedService.price,
-                method: 'Google Pay',
-                status: 'Settled & Captured'
+                method: 'Google Pay API',
+                status: 'Success'
             };
 
             globalState.bookings.push(newRecord);
             globalState.totalRevenue += selectedService.price;
 
-            // Sync Layout Dom
             renderUserBookings();
             renderAdminLedger();
             
             closeModal();
-            alert('Payment transaction completed successfully! Service confirmed.');
             showPage(loggedInUser ? 'user-dashboard' : 'home');
         }
 
@@ -326,17 +375,17 @@
             const userRecords = globalState.bookings.filter(b => b.user === loggedInUser);
             
             if(userRecords.length === 0) {
-                container.innerHTML = `<p class="text-slate-500 py-4">No active service records found. Visit the services tab to schedule a window.</p>`;
+                container.innerHTML = `<p class="text-slate-500 py-6 text-center">No structural execution records found. Deploy a service window from the catalogue.</p>`;
                 return;
             }
 
             container.innerHTML = userRecords.map(b => `
-                <div class="flex justify-between items-center py-3">
+                <div class="flex justify-between items-center py-4 border-b border-slate-800/40 last:border-0">
                     <div>
-                        <p class="font-semibold text-slate-900">${b.service}</p>
-                        <p class="text-xs text-slate-400">Paid using ${b.method}</p>
+                        <p class="font-bold text-white text-sm">${b.service}</p>
+                        <p class="text-[10px] text-slate-500 mt-0.5">Dispatched via ${b.method}</p>
                     </div>
-                    <span class="bg-emerald-100 text-emerald-800 font-medium px-2 py-1 rounded text-xs">${b.status}</span>
+                    <span class="bg-emerald-500/10 text-emerald-400 font-semibold border border-emerald-500/20 px-2.5 py-1 rounded-xl text-[10px]">Settled</span>
                 </div>
             `).join('');
         }
@@ -346,21 +395,20 @@
             const tbody = document.getElementById('adminTableBody');
             
             if(globalState.bookings.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="4" class="text-center p-4 text-slate-400">No transactions recorded inside log ledger database.</td></tr>`;
+                tbody.innerHTML = `<tr><td colspan="4" class="text-center py-6 text-slate-500">No active tracking matrices inside systemic pipeline data fields.</td></tr>`;
                 return;
             }
 
             tbody.innerHTML = globalState.bookings.map(b => `
-                <tr class="border-b hover:bg-slate-50">
-                    <td class="py-3 px-4 font-medium">${b.user}</td>
-                    <td class="py-3 px-4">${b.service}</td>
-                    <td class="py-3 px-4"><i class="fa-brands fa-google-pay text-lg"></i></td>
-                    <td class="py-3 px-4"><span class="text-emerald-600 font-bold">✓ Approved</span></td>
+                <tr class="hover:bg-slate-900/20 transition-all">
+                    <td class="py-3.5 px-4 font-mono text-slate-400">${b.user}</td>
+                    <td class="py-3.5 px-4 font-medium text-white">${b.service}</td>
+                    <td class="py-3.5 px-4 text-slate-400"><i class="fa-brands fa-google-pay text-2xl"></i></td>
+                    <td class="py-3.5 px-4 text-right"><span class="text-emerald-400 font-semibold">✓ Confirmed</span></td>
                 </tr>
             `).join('');
         }
 
-        // Initialize empty state displays
         renderAdminLedger();
     </script>
 </body>
