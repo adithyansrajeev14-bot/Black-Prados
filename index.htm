@@ -17,7 +17,7 @@
         .page-section { display: none; }
         .page-section.active { display: block; }
         
-        /* Metallic Silver Gradient Effects */
+        /* Metallic Silver Gradient Effects matching watermarked_img_16743238244508664939.png */
         .silver-gradient-text {
             background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 25%, #94a3b8 50%, #cbd5e1 75%, #ffffff 100%);
             -webkit-background-clip: text;
@@ -36,10 +36,6 @@
             border: 1px solid rgba(148, 163, 184, 0.3);
             box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1), 0 8px 24px rgba(0, 0, 0, 0.4);
         }
-        
-        /* Gallery Card Styles */
-        .gallery-item { transition: all 0.3s ease; }
-        .gallery-item.hidden { display: none; }
     </style>
 </head>
 <body class="text-slate-200 antialiased selection:bg-slate-300 selection:text-slate-950">
@@ -48,7 +44,7 @@
     <nav class="sticky top-0 z-50 bg-slate-950/90 backdrop-blur-md border-b border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20">
             <div class="flex items-center space-x-4 cursor-pointer group" onclick="showPage('home')">
-                <!-- Integrated Brand Logo Asset Container -->
+                <!-- Integrated Brand Logo Asset Container (unnamed_2.jpg) -->
                 <img src="unnamed_2.jpg" alt="Black Prados Logo" class="h-14 w-14 object-contain rounded-lg border border-slate-700 shadow-md">
                 <div class="flex flex-col">
                     <span class="font-black text-xl tracking-wider text-white uppercase">BLACK PRADOS K9</span>
@@ -59,7 +55,7 @@
                 <button onclick="showPage('home')" class="px-2 sm:px-3 py-2 text-slate-400 hover:text-white transition">Home</button>
                 <button onclick="showPage('services')" class="px-2 sm:px-3 py-2 text-slate-400 hover:text-white transition">Services</button>
                 <button onclick="showPage('gallery')" class="px-2 sm:px-3 py-2 text-slate-400 hover:text-white transition">Gallery</button>
-                <button onclick="showPage('login-page')" class="silver-button text-slate-950 px-3 sm:px-5 py-2 rounded-xl font-black tracking-tight transition active:scale-95 ml-1">Login</button>
+                <button id="loginNavBtn" onclick="showPage('login-page')" class="silver-button text-slate-950 px-3 sm:px-5 py-2 rounded-xl font-black tracking-tight transition active:scale-95 ml-1">Login</button>
             </div>
         </div>
     </nav>
@@ -85,7 +81,7 @@
                         <i class="fa-solid fa-credit-card text-xs"></i>
                     </button>
                     <button onclick="showPage('gallery')" class="bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-700 px-6 py-3.5 rounded-xl font-bold transition">
-                        View Facility Gallery
+                        Explore Media Gallery
                     </button>
                 </div>
             </div>
@@ -151,9 +147,9 @@
                     </div>
                 </div>
                 <form onsubmit="handleLogin(event, 'admin')" class="space-y-4">
-                    <input type="email" id="adminEmail" placeholder="Admin Username" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-slate-500 transition">
-                    <input type="password" id="adminPassword" placeholder="Master Password" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-slate-500 transition">
-                    <button type="submit" class="w-full silver-button text-slate-950 py-3 rounded-xl font-black text-sm uppercase tracking-wider transition">Verify Admin Login</button>
+                    <input type="email" value="admin@blackprados.com" readonly class="w-full bg-slate-950 border border-slate-850 rounded-xl px-4 py-3 text-sm text-slate-400 cursor-not-allowed outline-none">
+                    <input type="password" placeholder="Master Password" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-slate-500 transition">
+                    <button type="submit" class="w-full silver-button text-slate-950 py-3 rounded-xl font-black text-sm uppercase tracking-wider transition">Verify Admin Access</button>
                 </form>
             </div>
 
@@ -219,65 +215,47 @@
         </div>
     </section>
 
-    <!-- 4. BRAND GALLERY SECTION -->
+    <!-- 4. INTERACTIVE DYNAMIC GALLERY SECTION (WITH ROOT ADMIN PHOTO POSTING CONTROLS) -->
     <section id="gallery" class="page-section py-16 px-4 max-w-7xl mx-auto">
         <div class="text-center max-w-xl mx-auto mb-10">
-            <h2 class="text-3xl font-black text-white tracking-tight uppercase">BLACK PRADOS Canvas</h2>
-            <p class="text-slate-400 text-sm mt-2">A look inside our premium fields, training cohorts, and luxurious styling suites.</p>
+            <h2 class="text-3xl font-black text-white tracking-tight uppercase">Media Gallery</h2>
+            <p class="text-slate-400 text-sm mt-2">Explore active client results, training sessions, and luxury facility snapshots.</p>
         </div>
 
-        <!-- Gallery Filters -->
-        <div class="flex flex-wrap justify-center gap-2 mb-12">
-            <button onclick="filterGallery('all')" class="px-5 py-2 rounded-xl text-xs font-bold border border-slate-700 bg-slate-900 text-white hover:border-slate-500 transition cursor-pointer">All Showcase</button>
-            <button onclick="filterGallery('training')" class="px-5 py-2 rounded-xl text-xs font-bold border border-slate-800 bg-slate-950 text-slate-400 hover:text-white hover:border-slate-700 transition cursor-pointer">Academy</button>
-            <button onclick="filterGallery('daycare')" class="px-5 py-2 rounded-xl text-xs font-bold border border-slate-800 bg-slate-950 text-slate-400 hover:text-white hover:border-slate-700 transition cursor-pointer">Socialization</button>
-            <button onclick="filterGallery('grooming')" class="px-5 py-2 rounded-xl text-xs font-bold border border-slate-800 bg-slate-950 text-slate-400 hover:text-white hover:border-slate-700 transition cursor-pointer">Spa & Care</button>
+        <!-- Dynamic Admin Deployment Hub (Visually Unlocks only when logged in as Admin) -->
+        <div id="adminGalleryControls" class="hidden mb-12 max-w-3xl mx-auto brushed-card p-6 rounded-2xl border-dashed border-slate-500">
+            <div class="flex items-center space-x-3 mb-4 text-white">
+                <i class="fa-solid fa-cloud-arrow-up text-lg text-slate-400"></i>
+                <h3 class="font-bold text-base uppercase tracking-tight">Admin Media Dispatch Command</h3>
+            </div>
+            <form onsubmit="adminPostPhoto(event)" class="grid sm:grid-cols-12 gap-4">
+                <div class="sm:col-span-6">
+                    <input type="url" id="photoUrlInput" placeholder="Paste Unsplash or Image Link URL" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-slate-500 transition">
+                </div>
+                <div class="sm:col-span-3">
+                    <select id="photoCategoryInput" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2.5 text-xs text-slate-300 focus:outline-none focus:border-slate-500 transition">
+                        <option value="training">Training</option>
+                        <option value="daycare">Day Care</option>
+                        <option value="grooming">Grooming</option>
+                    </select>
+                </div>
+                <div class="sm:col-span-3">
+                    <button type="submit" class="w-full silver-button text-slate-950 font-black text-xs uppercase tracking-wider py-2.5 rounded-xl transition">Publish Asset</button>
+                </div>
+            </form>
         </div>
 
-        <!-- Gallery Photo Grid -->
-        <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
-            <div class="gallery-item group relative overflow-hidden rounded-2xl border border-slate-800/80 bg-slate-900" data-category="training">
-                <img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?auto=format&fit=crop&q=80&w=600" alt="Training Camp" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300 opacity-80 group-hover:opacity-100">
-                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent p-5 flex flex-col justify-end">
-                    <span class="text-[10px] text-slate-400 uppercase tracking-widest font-bold">K9 Academy</span>
-                    <h4 class="text-sm font-bold text-white mt-1">Obedience Leash Focus</h4>
-                </div>
-            </div>
-            <div class="gallery-item group relative overflow-hidden rounded-2xl border border-slate-800/80 bg-slate-900" data-category="daycare">
-                <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&q=80&w=600" alt="Dogs playing" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300 opacity-80 group-hover:opacity-100">
-                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent p-5 flex flex-col justify-end">
-                    <span class="text-[10px] text-slate-400 uppercase tracking-widest font-bold">Social Day Care</span>
-                    <h4 class="text-sm font-bold text-white mt-1">Group Yard Agility Runs</h4>
-                </div>
-            </div>
-            <div class="gallery-item group relative overflow-hidden rounded-2xl border border-slate-800/80 bg-slate-900" data-category="grooming">
-                <img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&q=80&w=600" alt="Dog Grooming" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300 opacity-80 group-hover:opacity-100">
-                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent p-5 flex flex-col justify-end">
-                    <span class="text-[10px] text-slate-400 uppercase tracking-widest font-bold">Spa Protocol</span>
-                    <h4 class="text-sm font-bold text-white mt-1">Sleek Undercoat Blowouts</h4>
-                </div>
-            </div>
-            <div class="gallery-item group relative overflow-hidden rounded-2xl border border-slate-800/80 bg-slate-900" data-category="training">
-                <img src="https://images.unsplash.com/photo-1534361960057-19889db9621e?auto=format&fit=crop&q=80&w=600" alt="Happy Trained Dog" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300 opacity-80 group-hover:opacity-100">
-                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent p-5 flex flex-col justify-end">
-                    <span class="text-[10px] text-slate-400 uppercase tracking-widest font-bold">Behavior Tracking</span>
-                    <h4 class="text-sm font-bold text-white mt-1">Environmental Desensitization</h4>
-                </div>
-            </div>
-            <div class="gallery-item group relative overflow-hidden rounded-2xl border border-slate-800/80 bg-slate-900" data-category="daycare">
-                <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&q=80&w=600" alt="Dog Rest" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300 opacity-80 group-hover:opacity-100">
-                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent p-5 flex flex-col justify-end">
-                    <span class="text-[10px] text-slate-400 uppercase tracking-widest font-bold">Resort Suites</span>
-                    <h4 class="text-sm font-bold text-white mt-1">Luxury Boarding Layout</h4>
-                </div>
-            </div>
-            <div class="gallery-item group relative overflow-hidden rounded-2xl border border-slate-800/80 bg-slate-900" data-category="grooming">
-                <img src="https://images.unsplash.com/photo-1561037404-61cd46aa615b?auto=format&fit=crop&q=80&w=600" alt="Dog Bath" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300 opacity-80 group-hover:opacity-100">
-                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent p-5 flex flex-col justify-end">
-                    <span class="text-[10px] text-slate-400 uppercase tracking-widest font-bold">Sanitary Care</span>
-                    <h4 class="text-sm font-bold text-white mt-1">Precision Thermal Dermis Baths</h4>
-                </div>
-            </div>
+        <!-- Filter Sub-Nav Controls -->
+        <div class="flex flex-wrap justify-center gap-2 mb-10">
+            <button onclick="filterGallery('all', this)" class="gallery-filter-btn px-5 py-2 rounded-xl text-xs font-bold border border-slate-700 bg-slate-900 text-white transition">All Showcase</button>
+            <button onclick="filterGallery('training', this)" class="gallery-filter-btn px-5 py-2 rounded-xl text-xs font-bold border border-slate-800 bg-slate-950 text-slate-400 hover:text-white transition">Training</button>
+            <button onclick="filterGallery('daycare', this)" class="gallery-filter-btn px-5 py-2 rounded-xl text-xs font-bold border border-slate-800 bg-slate-950 text-slate-400 hover:text-white transition">Day Care</button>
+            <button onclick="filterGallery('grooming', this)" class="gallery-filter-btn px-5 py-2 rounded-xl text-xs font-bold border border-slate-800 bg-slate-950 text-slate-400 hover:text-white transition">Grooming</button>
+        </div>
+
+        <!-- Interactive Reactive Image Matrix Grid Output -->
+        <div id="galleryContainerGrid" class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <!-- Handled dynamically by state engine script -->
         </div>
     </section>
 
@@ -319,7 +297,7 @@
         <div class="bg-slate-900/40 p-6 rounded-2xl border border-slate-800">
             <h3 class="font-bold text-sm uppercase tracking-wider text-slate-300 mb-4">Your Appointment Schedules</h3>
             <div id="bookingList" class="divide-y divide-slate-800 text-xs">
-                <p class="text-slate-500 py-6 text-center">No structural execution records found. Deploy an asset package from the services window.</p>
+                <!-- User dynamic scheduling blocks -->
             </div>
         </div>
     </section>
@@ -331,7 +309,10 @@
                 <h2 class="text-xl font-black text-white uppercase tracking-tight">Root Administration Panel</h2>
                 <p class="text-xs text-slate-400 mt-1"><i class="fa-solid fa-user-shield mr-1"></i> Global Master Operations Mode Engaged</p>
             </div>
-            <button onclick="logout()" class="text-xs font-bold text-slate-400 border border-slate-700 px-3 py-1.5 rounded-xl hover:bg-slate-800 transition">Log Out</button>
+            <div class="flex space-x-2">
+                <button onclick="showPage('gallery')" class="text-xs font-bold text-white bg-slate-800 px-4 py-1.5 rounded-xl hover:bg-slate-700 transition">Manage Gallery Assets</button>
+                <button onclick="logout()" class="text-xs font-bold text-slate-400 border border-slate-700 px-3 py-1.5 rounded-xl hover:bg-slate-800 transition">Log Out</button>
+            </div>
         </div>
         
         <div class="grid sm:grid-cols-3 gap-4 mb-8">
@@ -362,22 +343,32 @@
                         </tr>
                     </thead>
                     <tbody id="adminTableBody" class="divide-y divide-slate-800 text-slate-300">
-                        <!-- Ledger Ingestion -->
+                        <!-- Ledger data insertion block -->
                     </tbody>
                 </table>
             </div>
         </div>
     </section>
 
-    <!-- INTERACTION LOGIC ARCHITECTURE ENGINE -->
+    <!-- SYSTEM REACTION STATE ARCHITECTURE ENGINE -->
     <script>
-        let currentRole = 'user';
+        let currentRole = 'visitor';
         let loggedInUser = null;
         let selectedService = null;
+        let activeFilter = 'all';
         
         let globalState = {
             bookings: [],
-            totalRevenue: 0
+            totalRevenue: 0,
+            // Pre-populated gallery database arrays
+            galleryPhotos: [
+                { id: 1, category: 'training', title: 'Obedience Leash Focus', url: 'https://images.unsplash.com/photo-1601758228041-f3b2795255f1?auto=format&fit=crop&q=80&w=600' },
+                { id: 2, category: 'daycare', title: 'Group Yard Agility Runs', url: 'https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&q=80&w=600' },
+                { id: 3, category: 'grooming', title: 'Sleek Undercoat Blowouts', url: 'https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&q=80&w=600' },
+                { id: 4, category: 'training', title: 'Environmental Desensitization', url: 'https://images.unsplash.com/photo-1534361960057-19889db9621e?auto=format&fit=crop&q=80&w=600' },
+                { id: 5, category: 'daycare', title: 'Luxury Boarding Layout', url: 'https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&q=80&w=600' },
+                { id: 6, category: 'grooming', title: 'Precision Thermal Baths', url: 'https://images.unsplash.com/photo-1561037404-61cd46aa615b?auto=format&fit=crop&q=80&w=600' }
+            ]
         };
 
         function showPage(pageId) {
@@ -387,23 +378,72 @@
             window.scrollTo(0,0);
         }
 
-        function filterGallery(category) {
-            const items = document.querySelectorAll('.gallery-item');
-            items.forEach(item => {
-                if (category === 'all' || item.getAttribute('data-category') === category) {
-                    item.classList.remove('hidden');
-                } else {
-                    item.classList.add('hidden');
-                }
-            });
+        // --- CORE GALLERY STATE RENDER ENGINE ---
+        function renderGalleryData() {
+            const container = document.getElementById('galleryContainerGrid');
+            const targetPhotos = globalState.galleryPhotos.filter(p => activeFilter === 'all' || p.category === activeFilter);
             
-            // Toggle highlight colors for buttons
-            event.target.parentNode.querySelectorAll('button').forEach(btn => {
-                btn.className = "px-5 py-2 rounded-xl text-xs font-bold border border-slate-800 bg-slate-950 text-slate-400 hover:text-white hover:border-slate-700 transition cursor-pointer";
-            });
-            event.target.className = "px-5 py-2 rounded-xl text-xs font-bold border border-slate-700 bg-slate-900 text-white hover:border-slate-500 transition cursor-pointer";
+            if (targetPhotos.length === 0) {
+                container.innerHTML = `<div class="col-span-full text-center py-12 text-slate-500 text-xs">No media resources deployment arrays found inside this selector filter category block.</div>`;
+                return;
+            }
+
+            container.innerHTML = targetPhotos.map(photo => `
+                <div class="group relative overflow-hidden rounded-2xl border border-slate-800/80 bg-slate-900">
+                    <img src="${photo.url}" alt="${photo.title}" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300 opacity-80 group-hover:opacity-100">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent p-5 flex flex-col justify-end">
+                        <div class="flex justify-between items-end">
+                            <div>
+                                <span class="text-[10px] text-slate-400 uppercase tracking-widest font-bold">${photo.category} Module</span>
+                                <h4 class="text-sm font-bold text-white mt-1">${photo.title}</h4>
+                            </div>
+                            <!-- Dynamic Administrative Delete Anchor Mechanism Trigger -->
+                            ${currentRole === 'admin' ? `
+                                <button onclick="adminDeletePhoto(${photo.id})" class="bg-red-500/20 hover:bg-red-500 border border-red-500/40 text-red-200 hover:text-white p-2 rounded-xl transition cursor-pointer shadow-lg" title="Delete Asset Layout">
+                                    <i class="fa-solid fa-trash-can text-xs"></i>
+                                </button>
+                            ` : ''}
+                        </div>
+                    </div>
+                </div>
+            `).join('');
         }
 
+        function filterGallery(category, buttonElement) {
+            activeFilter = category;
+            
+            document.querySelectorAll('.gallery-filter-btn').forEach(btn => {
+                btn.className = "gallery-filter-btn px-5 py-2 rounded-xl text-xs font-bold border border-slate-800 bg-slate-950 text-slate-400 hover:text-white transition cursor-pointer";
+            });
+            buttonElement.className = "gallery-filter-btn px-5 py-2 rounded-xl text-xs font-bold border border-slate-700 bg-slate-900 text-white transition cursor-pointer";
+            
+            renderGalleryData();
+        }
+
+        // --- ADMINISTRATIVE PHOTO POST CONTROLLERS ---
+        function adminPostPhoto(event) {
+            event.preventDefault();
+            const urlInput = document.getElementById('photoUrlInput');
+            const categoryInput = document.getElementById('photoCategoryInput');
+
+            const newAsset = {
+                id: Date.now(),
+                category: categoryInput.value,
+                title: `System Deployment Area (#${Math.floor(1000 + Math.random() * 9000)})`,
+                url: urlInput.value
+            };
+
+            globalState.galleryPhotos.unshift(newAsset);
+            urlInput.value = ''; // Reset entry input fields
+            renderGalleryData();
+        }
+
+        function adminDeletePhoto(id) {
+            globalState.galleryPhotos = globalState.galleryPhotos.filter(item => item.id !== id);
+            renderGalleryData();
+        }
+
+        // --- AUTHENTICATION & PORTAL MANAGEMENT SYSTEM ---
         function handleLogin(e, role) {
             e.preventDefault();
             currentRole = role;
@@ -418,20 +458,38 @@
         }
 
         function routingDashboard() {
+            // Manage topbar navigation layout indicators
+            const navBtn = document.getElementById('loginNavBtn');
+            if (loggedInUser) {
+                navBtn.innerText = currentRole === 'admin' ? "Admin Hub" : "Dashboard";
+                navBtn.onclick = () => showPage(currentRole === 'admin' ? 'admin-dashboard' : 'user-dashboard');
+            }
+
             if(currentRole === 'admin') {
+                document.getElementById('adminGalleryControls').classList.remove('hidden');
+                renderAdminLedger();
                 showPage('admin-dashboard');
             } else {
+                document.getElementById('adminGalleryControls').class = "hidden";
                 document.getElementById('userDashboardEmail').innerText = loggedInUser;
                 renderUserBookings();
                 showPage('user-dashboard');
             }
+            renderGalleryData(); // Refresh nodes to match configuration state profiles
         }
 
         function logout() {
+            currentRole = 'visitor';
             loggedInUser = null;
+            document.getElementById('adminGalleryControls').classList.add('hidden');
+            const navBtn = document.getElementById('loginNavBtn');
+            navBtn.innerText = "Login";
+            navBtn.onclick = () => showPage('login-page');
+            renderGalleryData();
             showPage('home');
         }
 
+        // --- TRANSACTION PIPELINE LOGIC METRICS ---
         function openBooking(name, price) {
             selectedService = { name, price };
             document.getElementById('modalServiceName').innerText = name;
@@ -501,6 +559,8 @@
             `).join('');
         }
 
+        // Initialize Global Content State Matrix
+        renderGalleryData();
         renderAdminLedger();
     </script>
 </body>
