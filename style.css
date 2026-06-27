@@ -1,0 +1,33 @@
+/* Custom Global Refinements for the Premium Theme */
+
+.custom-hero-bg {
+    background-image: url('unnamed_2.jpg');
+}
+
+/* Luxury card glow animations */
+.custom-premium-card {
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.custom-premium-card:hover {
+    box-shadow: 0 10px 30px -10px rgba(234, 179, 8, 0.15);
+    transform: translateY(-4px);
+}
+
+/* Custom scrollbar configurations */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #030712;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1e293b;
+    border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ca8a04;
+}
