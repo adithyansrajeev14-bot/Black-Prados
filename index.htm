@@ -1,0 +1,367 @@
+	<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLACK PRADOS | Elite Pet Services</title>
+    <!-- Tailwind CSS for modern layout styling -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- FontAwesome for clean iconography -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .page-section { display: none; }
+        .page-section.active { display: block; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans">
+
+    <!-- Header Navigation -->
+    <nav class="bg-slate-900 text-white sticky top-0 z-50 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+            <div class="flex items-center space-x-2 cursor-pointer" onclick="showPage('home')">
+                <i class="fa-solid fa-dog text-amber-500 text-2xl"></i>
+                <span class="font-bold text-xl tracking-wider text-amber-400">BLACK PRADOS</span>
+            </div>
+            <div class="hidden md:flex space-x-6 items-center">
+                <button onclick="showPage('home')" class="hover:text-amber-400 transition">Home</button>
+                <button onclick="showPage('services')" class="hover:text-amber-400 transition">Services</button>
+                <button onclick="showPage('login-page')" class="bg-amber-500 hover:bg-amber-600 text-slate-900 px-4 py-2 rounded-lg font-semibold transition">Portal Login</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1. HOME SECTION -->
+    <section id="home" class="page-section active">
+        <div class="relative bg-slate-900 text-white py-24 px-6 text-center overflow-hidden">
+            <div class="max-w-3xl mx-auto relative z-10">
+                <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-4">Elite Care For Your Best Friend</h1>
+                <p class="text-lg md:text-xl text-slate-300 mb-8">Professional dog training, luxury boarding, grooming, and daytime care tailored to your dog's distinct needs.</p>
+                <div class="flex justify-center space-x-4">
+                    <button onclick="showPage('services')" class="bg-amber-500 hover:bg-amber-600 text-slate-900 px-6 py-3 rounded-lg font-bold transition">Book a Service</button>
+                    <button onclick="showPage('login-page')" class="border border-slate-400 hover:border-white px-6 py-3 rounded-lg font-medium transition">Client & Admin Login</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. LOGIN / PORTAL CHOICE SECTION -->
+    <section id="login-page" class="page-section py-12 px-4 max-w-md mx-auto">
+        <div class="bg-white p-8 rounded-xl shadow-lg border border-slate-200">
+            <h2 class="text-2xl font-bold text-center mb-6 text-slate-900">Welcome to BLACK PRADOS</h2>
+            
+            <!-- Segmented Control for Admin/User -->
+            <div class="flex bg-slate-100 p-1 rounded-lg mb-6">
+                <button id="userToggle" onclick="toggleRole('user')" class="w-1/2 py-2 text-sm font-medium rounded-md bg-white text-slate-900 shadow">User Portal</button>
+                <button id="adminToggle" onclick="toggleRole('admin')" class="w-1/2 py-2 text-sm font-medium rounded-md text-slate-600">Admin Panel</button>
+            </div>
+
+            <!-- Standard Credential Form -->
+            <form onsubmit="handleLogin(event)" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium mb-1">Email Address</label>
+                    <input type="email" id="loginEmail" required class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-1">Password</label>
+                    <input type="password" id="loginPassword" required class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500">
+                </div>
+                <button type="submit" class="w-full bg-slate-900 hover:bg-slate-800 text-white py-2 rounded-lg font-semibold transition">Log In</button>
+            </form>
+
+            <div class="relative flex py-4 items-center">
+                <div class="flex-grow border-t border-slate-300"></div>
+                <span class="flex-shrink mx-4 text-slate-400 text-xs uppercase">Or continue with</span>
+                <div class="flex-grow border-t border-slate-300"></div>
+            </div>
+
+            <!-- Google Sign-in Button Wrapper -->
+            <button onclick="simulateGoogleLogin()" class="w-full flex items-center justify-center space-x-2 border border-slate-300 hover:bg-slate-50 py-2 rounded-lg font-medium transition">
+                <i class="fa-brands fa-google text-red-500"></i>
+                <span>Sign in with Google</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- 3. SERVICES & BOOKING SECTION -->
+    <section id="services" class="page-section py-12 px-4 max-w-6xl mx-auto">
+        <h2 class="text-3xl font-extrabold text-center mb-2">Our Premium Packages</h2>
+        <p class="text-slate-600 text-center mb-10">Select an elite option to begin scheduling your appointment.</p>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Card 1 -->
+            <div class="bg-white p-6 rounded-xl shadow-md border border-slate-100 flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center text-amber-600 mb-4 text-xl"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <h3 class="text-xl font-bold mb-2">K9 Obedience</h3>
+                    <p class="text-sm text-slate-600 mb-4">Behavior correction, socialization, and core leash obedience rules.</p>
+                </div>
+                <div>
+                    <div class="text-2xl font-bold mb-4">$120 <span class="text-xs text-slate-500">/ session</span></div>
+                    <button onclick="openBooking('K9 Obedience Training', 120)" class="w-full bg-slate-950 hover:bg-slate-800 text-white py-2 rounded-lg text-sm font-semibold transition">Select</button>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="bg-white p-6 rounded-xl shadow-md border border-slate-100 flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center text-amber-600 mb-4 text-xl"><i class="fa-solid fa-cloud-sun"></i></div>
+                    <h3 class="text-xl font-bold mb-2">Day Care</h3>
+                    <p class="text-sm text-slate-600 mb-4">Monitored group interactions, dynamic agility runs, and nap structures.</p>
+                </div>
+                <div>
+                    <div class="text-2xl font-bold mb-4">$45 <span class="text-xs text-slate-500">/ day</span></div>
+                    <button onclick="openBooking('Premium Day Care', 45)" class="w-full bg-slate-950 hover:bg-slate-800 text-white py-2 rounded-lg text-sm font-semibold transition">Select</button>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="bg-white p-6 rounded-xl shadow-md border border-slate-100 flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center text-amber-600 mb-4 text-xl"><i class="fa-solid fa-scissors"></i></div>
+                    <h3 class="text-xl font-bold mb-2">Spa & Grooming</h3>
+                    <p class="text-sm text-slate-600 mb-4">Precision shedding blowouts, nail trimming, and therapeutic baths.</p>
+                </div>
+                <div>
+                    <div class="text-2xl font-bold mb-4">$75 <span class="text-xs text-slate-500">/ session</span></div>
+                    <button onclick="openBooking('Spa & Grooming', 75)" class="w-full bg-slate-950 hover:bg-slate-800 text-white py-2 rounded-lg text-sm font-semibold transition">Select</button>
+                </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="bg-white p-6 rounded-xl shadow-md border border-slate-100 flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center text-amber-600 mb-4 text-xl"><i class="fa-solid fa-hotel"></i></div>
+                    <h3 class="text-xl font-bold mb-2">Luxury Boarding</h3>
+                    <p class="text-sm text-slate-600 mb-4">Overnight stays inside temperature-regulated suites with 24/7 staff lookouts.</p>
+                </div>
+                <div>
+                    <div class="text-2xl font-bold mb-4">$90 <span class="text-xs text-slate-500">/ night</span></div>
+                    <button onclick="openBooking('Luxury Boarding Suite', 90)" class="w-full bg-slate-950 hover:bg-slate-800 text-white py-2 rounded-lg text-sm font-semibold transition">Select</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. CHECKOUT MODAL / POPUP -->
+    <div id="bookingModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm hidden items-center justify-center p-4 z-50">
+        <div class="bg-white w-full max-w-md rounded-xl shadow-xl overflow-hidden">
+            <div class="p-6 border-b border-slate-200 flex justify-between items-center">
+                <h3 class="font-bold text-lg text-slate-900">Confirm Appointment</h3>
+                <button onclick="closeModal()" class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="p-6 space-y-4">
+                <div>
+                    <p class="text-xs text-slate-500 uppercase tracking-wide">Selected Service</p>
+                    <p id="modalServiceName" class="font-bold text-slate-800 text-lg"></p>
+                </div>
+                <div>
+                    <p class="text-xs text-slate-500 uppercase tracking-wide">Total Charge</p>
+                    <p id="modalServicePrice" class="font-extrabold text-slate-900 text-2xl"></p>
+                </div>
+                <hr class="border-slate-200">
+                <p class="text-xs text-slate-500">Secure checkouts facilitated by third-party processors.</p>
+                
+                <!-- Google Pay Simulation Action Button -->
+                <button onclick="processGPay()" class="w-full bg-black hover:bg-slate-900 text-white py-3 rounded-lg flex items-center justify-center space-x-2 font-medium tracking-wide transition">
+                    <i class="fa-brands fa-google-pay text-3xl"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. USER DASHBOARD -->
+    <section id="user-dashboard" class="page-section py-12 px-4 max-w-4xl mx-auto">
+        <div class="bg-white p-6 rounded-xl shadow-md border mb-6 flex justify-between items-center">
+            <div>
+                <h2 class="text-2xl font-bold">Welcome Back, Client Portal</h2>
+                <p id="userDashboardEmail" class="text-sm text-slate-500"></p>
+            </div>
+            <button onclick="logout()" class="text-red-500 font-semibold hover:underline">Sign Out</button>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-md border">
+            <h3 class="font-bold text-lg mb-4">Your Registered Appointments</h3>
+            <div id="bookingList" class="divide-y divide-slate-200 text-sm">
+                <p class="text-slate-500 py-4">No active service records found. Visit the services tab to schedule a window.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. ADMIN DASHBOARD -->
+    <section id="admin-dashboard" class="page-section py-12 px-4 max-w-5xl mx-auto">
+        <div class="bg-white p-6 rounded-xl shadow-md border mb-6 flex justify-between items-center">
+            <div>
+                <h2 class="text-2xl font-bold text-slate-900">BLACK PRADOS Administration Control</h2>
+                <p class="text-sm text-amber-600 font-medium"><i class="fa-solid fa-shield-halved"></i> Global Master Authorization Mode</p>
+            </div>
+            <button onclick="logout()" class="text-red-600 font-semibold hover:underline">Exit Panel</button>
+        </div>
+        <div class="grid md:grid-cols-3 gap-4 mb-6">
+            <div class="bg-slate-900 text-white p-4 rounded-xl">
+                <p class="text-xs text-slate-400 uppercase font-medium">Gross Incoming Invoices</p>
+                <p id="adminRevenue" class="text-2xl font-bold">$0.00</p>
+            </div>
+            <div class="bg-white border p-4 rounded-xl">
+                <p class="text-xs text-slate-500 uppercase font-medium">Pending Kennel Boarders</p>
+                <p class="text-2xl font-bold">14</p>
+            </div>
+            <div class="bg-white border p-4 rounded-xl">
+                <p class="text-xs text-slate-500 uppercase font-medium">Training Programs Active</p>
+                <p class="text-2xl font-bold">8</p>
+            </div>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-md border">
+            <h3 class="font-bold text-lg mb-4">Master Ledger Appointments</h3>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-sm whitespace-nowrap">
+                    <thead>
+                        <tr class="bg-slate-50 text-slate-600 uppercase text-xs font-semibold border-b">
+                            <th class="py-3 px-4">Client Email</th>
+                            <th class="py-3 px-4">Service Package</th>
+                            <th class="py-3 px-4">Gateway Source</th>
+                            <th class="py-3 px-4">Transaction Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="adminTableBody" class="divide-y text-slate-700">
+                        <!-- Simulated Rows Enter Here Dynamic -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Logic Controller Script -->
+    <script>
+        let currentRole = 'user';
+        let loggedInUser = null;
+        let selectedService = null;
+        
+        // Mock State Engine Data
+        let globalState = {
+            bookings: [],
+            totalRevenue: 0
+        };
+
+        function showPage(pageId) {
+            document.querySelectorAll('.page-section').forEach(sec => sec.classList.remove('active'));
+            const target = document.getElementById(pageId);
+            if(target) target.classList.add('active');
+            window.scrollTo(0,0);
+        }
+
+        function toggleRole(role) {
+            currentRole = role;
+            const uBtn = document.getElementById('userToggle');
+            const aBtn = document.getElementById('adminToggle');
+            if(role === 'admin') {
+                aBtn.className = "w-1/2 py-2 text-sm font-medium rounded-md bg-white text-slate-900 shadow";
+                uBtn.className = "w-1/2 py-2 text-sm font-medium rounded-md text-slate-600";
+            } else {
+                uBtn.className = "w-1/2 py-2 text-sm font-medium rounded-md bg-white text-slate-900 shadow";
+                aBtn.className = "w-1/2 py-2 text-sm font-medium rounded-md text-slate-600";
+            }
+        }
+
+        function handleLogin(e) {
+            e.preventDefault();
+            const email = document.getElementById('loginEmail').value;
+            loggedInUser = email;
+            routingDashboard();
+        }
+
+        function simulateGoogleLogin() {
+            loggedInUser = "client.viasocial@gmail.com";
+            alert("Google OAuth Sandbox authentication succeeded!");
+            routingDashboard();
+        }
+
+        function routingDashboard() {
+            if(currentRole === 'admin') {
+                showPage('admin-dashboard');
+            } else {
+                document.getElementById('userDashboardEmail').innerText = loggedInUser;
+                renderUserBookings();
+                showPage('user-dashboard');
+            }
+        }
+
+        function logout() {
+            loggedInUser = null;
+            showPage('home');
+        }
+
+        function openBooking(name, price) {
+            selectedService = { name, price };
+            document.getElementById('modalServiceName').innerText = name;
+            document.getElementById('modalServicePrice').innerText = `$${price}`;
+            const modal = document.getElementById('bookingModal');
+            modal.style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('bookingModal').style.display = 'none';
+        }
+
+        function processGPay() {
+            alert(`Google Pay interface called.\nProcessing charge amount: $${selectedService.price}`);
+            
+            const newRecord = {
+                user: loggedInUser || 'Walk-in Client/Guest',
+                service: selectedService.name,
+                price: selectedService.price,
+                method: 'Google Pay',
+                status: 'Settled & Captured'
+            };
+
+            globalState.bookings.push(newRecord);
+            globalState.totalRevenue += selectedService.price;
+
+            // Sync Layout Dom
+            renderUserBookings();
+            renderAdminLedger();
+            
+            closeModal();
+            alert('Payment transaction completed successfully! Service confirmed.');
+            showPage(loggedInUser ? 'user-dashboard' : 'home');
+        }
+
+        function renderUserBookings() {
+            const container = document.getElementById('bookingList');
+            const userRecords = globalState.bookings.filter(b => b.user === loggedInUser);
+            
+            if(userRecords.length === 0) {
+                container.innerHTML = `<p class="text-slate-500 py-4">No active service records found. Visit the services tab to schedule a window.</p>`;
+                return;
+            }
+
+            container.innerHTML = userRecords.map(b => `
+                <div class="flex justify-between items-center py-3">
+                    <div>
+                        <p class="font-semibold text-slate-900">${b.service}</p>
+                        <p class="text-xs text-slate-400">Paid using ${b.method}</p>
+                    </div>
+                    <span class="bg-emerald-100 text-emerald-800 font-medium px-2 py-1 rounded text-xs">${b.status}</span>
+                </div>
+            `).join('');
+        }
+
+        function renderAdminLedger() {
+            document.getElementById('adminRevenue').innerText = `$${globalState.totalRevenue.toFixed(2)}`;
+            const tbody = document.getElementById('adminTableBody');
+            
+            if(globalState.bookings.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="4" class="text-center p-4 text-slate-400">No transactions recorded inside log ledger database.</td></tr>`;
+                return;
+            }
+
+            tbody.innerHTML = globalState.bookings.map(b => `
+                <tr class="border-b hover:bg-slate-50">
+                    <td class="py-3 px-4 font-medium">${b.user}</td>
+                    <td class="py-3 px-4">${b.service}</td>
+                    <td class="py-3 px-4"><i class="fa-brands fa-google-pay text-lg"></i></td>
+                    <td class="py-3 px-4"><span class="text-emerald-600 font-bold">✓ Approved</span></td>
+                </tr>
+            `).join('');
+        }
+
+        // Initialize empty state displays
+        renderAdminLedger();
+    </script>
+</body>
+</html>
